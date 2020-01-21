@@ -13,7 +13,7 @@ services:
     depends_on:
       - edit-db
   edit-db:
-    image: sogis/edit-db
+    image: sogis/oereb-db
     command: /tmp/override_setupsql.sh /opt/cpm/bin/start.sh
     environment:
       PG_DATABASE: edit
