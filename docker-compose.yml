@@ -11,10 +11,9 @@ services:
     networks:
       - nplgretljobs
     depends_on:
-      - oereb-db
       - edit-db
   edit-db:
-    image: sogis/oereb-db
+    image: sogis/edit-db
     command: /tmp/override_setupsql.sh /opt/cpm/bin/start.sh
     environment:
       PG_DATABASE: edit
