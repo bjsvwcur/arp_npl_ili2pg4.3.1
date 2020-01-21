@@ -26,12 +26,12 @@ ext {
     iliModelGroundwaterProtection = "PlanerischerGewaesserschutz_LV95_V1_1"
     dbSchemaGroundwaterProtection = "afu_gewaesserschutz"
     groundwaterProtectionDataFile = "afu_gewaesserschutz.xtf"
-    groundwaterProtectionBaseUrl = "https://raw.githubusercontent.com/sogis/oereb-gretljobs/master/development_dbs/"
+    groundwaterProtectionBaseUrl = "https://github.com/bjsvwcur/arp_npl_ili2pg4.3.1/edit/master/development_dbs/"
 
     iliModelStaticForestPerimeters = "SO_AWJF_Statische_Waldgrenzen_20191119"
     dbSchemaStaticForestPerimeters = "awjf_statische_waldgrenze"
     staticForestPerimetersDataFile = "awjf_statische_waldgrenze.xtf"
-    staticForestPerimetersBaseUrl = "https://raw.githubusercontent.com/sogis/oereb-gretljobs/master/development_dbs/"
+    staticForestPerimetersBaseUrl = "https://github.com/bjsvwcur/arp_npl_ili2pg4.3.1/edit/master/development_dbs/"
 
 }    
 
