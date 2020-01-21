@@ -2,9 +2,9 @@
 Create Schema und Import Daten der Nutzungsplanung mit ili2pg V 4.3.1
 
 Git clonen:
-
-git clone https://github.com/bjsvwcur/arp_npl_ili2pg4.3.1.git
-
+```
+  git clone https://github.com/bjsvwcur/arp_npl_ili2pg4.3.1.git
+```
 
 Set environment variables containing the DB connection parameters and names of other resources:
 ```
