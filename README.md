@@ -7,12 +7,17 @@ Git clonen:
 ```
 
 ```
-docker-compose run --rm --user $UID -v $PWD/development_dbs:/home/gradle/project gretl "sleep 20 && cd /home/gradle && gretl -b project/build-dev.gradle createSchemaLandUsePlans replaceDataLandUsePlans"
+  docker-compose run --rm --user $UID -v $PWD/development_dbs:/home/gradle/project gretl "sleep 20 && cd /home/gradle && gretl -b project/build-dev.gradle createSchemaLandUsePlans replaceDataLandUsePlans"
 ```
 
-Set environment variables containing the DB connection parameters and names of other resources:
+ENV Variablen auf die "Container"-DB setzen:
 ```
   export ORG_GRADLE_PROJECT_dbUriEdit="jdbc:postgresql://edit-db/edit"
   export ORG_GRADLE_PROJECT_dbUserEdit="gretl"
   export ORG_GRADLE_PROJECT_dbPwdEdit="gretl"
+```
+
+NPL Daten in die DB importieren:
+```
+  sudo -E ./start-gretl.sh --docker_image sogis/gretl-runtime:latest --job_directory /home/bjsvwcur/arp_npl_ili2pg4.3.1/arp_npl_import/ --task_name replaceDataset -Pxtf=2408.xtf
 ```
