@@ -9,11 +9,12 @@ apply plugin: "ch.so.agi.gretl"
 ext {
     pathToTempFolder = System.getProperty("java.io.tmpdir")
 
+
     iliModelLandUsePlans = "SO_Nutzungsplanung_20171118"
     dbSchemaLandUsePlans = "arp_npl"
-    landUsePlansDataSets = ["2401", "2403"]
+    landUsePlansDataSets = ["2401"]
     landUsePlansBaseUrl = "https://geo.so.ch/geodata/ch.so.arp.nutzungsplanung/"
-   
+    
 }    
 
 // Cannot use GRETL for ili2pgImportSchema since not all v4 options
@@ -51,4 +52,16 @@ task replaceDataLandUsePlans() {
     }
 }
 
+/*
+task uploadToS3(type: AmazonS3FileUploadTask) {
+    description = "Hochladen der exportierten Datei auf S3."
+	file file("$rootDir/" + xtfFileName) 
+	bucketName "ch.so.arp.nutzungsplanung.oereb"
+	key xtfFileName
+
+	def m = new ObjectMetadata()
+	m.setCacheControl("no-cache, no-store")
+	objectMetadata = m
+}
+*/
 
