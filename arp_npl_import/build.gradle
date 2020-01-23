@@ -32,7 +32,7 @@ task checkXtfName() {
 }
 
 
-task replaceDataset (type: Ili2pgReplace) {
+task replaceDataset (type: Ili2pgReplace: dependsOn: 'checkXtfName') {
     description = "Ersetzt einen Datensatz (=XTF) in der Erfassungsdatenbank."
     database = [dbUriEdit, dbUserEdit, dbPwdEdit]
     dbschema = "arp_npl"
