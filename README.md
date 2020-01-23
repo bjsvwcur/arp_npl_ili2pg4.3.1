@@ -19,5 +19,5 @@ ENV Variablen auf die "Container"-DB setzen:
 
 NPL Daten in die DB importieren:
 ```
-  sudo -E $PWD/arp_npl_import/start-gretl.sh --docker_image sogis/gretl-runtime:latest --job_directory $PWD/arp_npl_import/ --task_name replaceDataset -Pxtf=2408.xtf
+  sudo -E $PWD/start-gretl.sh --docker-image sogis/gretl-runtime:latest --docker-network arpnplili2pg431_nplgretljobs --job-directory $PWD/arp_npl_import/  replaceDataset -Pxtf=2408.xtf
 ```
