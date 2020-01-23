@@ -31,10 +31,6 @@ task checkXtfName() {
     }
 }
 
-task validateDataset(type: IliValidator, dependsOn: 'checkXtfName') {
-    description = "Validiert einen Datensatz (=XTF)."    
-    dataFiles = [xtf]
-}
 
 task replaceDataset (type: Ili2pgReplace, dependsOn: 'validateDataset') {
     description = "Ersetzt einen Datensatz (=XTF) in der Erfassungsdatenbank."
