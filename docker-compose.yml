@@ -57,7 +57,7 @@ services:
       PG_READ_USER: ogc_server
       PG_READ_PASSWORD: ogc_server
     ports:
-      - "54331:5433"
+      - "54322:5432"
     networks:
       - nplgretljobs
     volumes:
