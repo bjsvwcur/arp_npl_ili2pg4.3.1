@@ -46,6 +46,11 @@ landUsePlansDataSets.each { landUsePlansDataSet ->
     }
 }
 
+task createSchemaLandUsePlansPub(type: SqlExecutor, dependsOn: createSchemaLandUsePlans){
+    database = [dbUriPub, "admin", "admin"]
+    sqlFiles = ['arp_npl_pub.sql', 'arp_npl_pub_grants.sql']
+}
+
 task replaceDataLandUsePlans() {
     dependsOn {
         tasks.findAll { task -> task.name.startsWith('replaceDataLandUsePlans_') }
