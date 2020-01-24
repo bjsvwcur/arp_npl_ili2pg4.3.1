@@ -12,6 +12,7 @@ ext {
 
     iliModelLandUsePlans = "SO_Nutzungsplanung_20171118"
     dbSchemaLandUsePlans = "arp_npl"
+    dbSchemaLandUsePlansPub = "arp_npl_pub"
     landUsePlansDataSets = ["2401"]
     landUsePlansBaseUrl = "https://geo.so.ch/geodata/ch.so.arp.nutzungsplanung/"
     
@@ -46,7 +47,7 @@ landUsePlansDataSets.each { landUsePlansDataSet ->
     }
 }
 
-task createSchemaLandUsePlansPub(type: SqlExecutor, dependsOn: createSchemaLandUsePlans){
+task createSchemaLandUsePlansPub(type: SqlExecutor){
     database = [dbUriPub, "admin", "admin"]
     sqlFiles = ['arp_npl_pub.sql', 'arp_npl_pub_grants.sql']
 }
@@ -56,17 +57,4 @@ task replaceDataLandUsePlans() {
         tasks.findAll { task -> task.name.startsWith('replaceDataLandUsePlans_') }
     }
 }
-
-/*
-task uploadToS3(type: AmazonS3FileUploadTask) {
-    description = "Hochladen der exportierten Datei auf S3."
-	file file("$rootDir/" + xtfFileName) 
-	bucketName "ch.so.arp.nutzungsplanung.oereb"
-	key xtfFileName
-
-	def m = new ObjectMetadata()
-	m.setCacheControl("no-cache, no-store")
-	objectMetadata = m
-}
-*/
 
