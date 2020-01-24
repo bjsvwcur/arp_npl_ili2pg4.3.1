@@ -11,8 +11,6 @@ services:
       ORG_GRADLE_PROJECT_dbUriPub: "jdbc:postgresql://pub-db/pub"
       ORG_GRADLE_PROJECT_dbUserPub: gretl
       ORG_GRADLE_PROJECT_dbPwdPub: gretl
-   networks:
-      - nplgretljobs
     depends_on:
       - edit-db
       - pub-db
@@ -35,13 +33,11 @@ services:
       PG_READ_PASSWORD: ogc_server
     ports:
       - "54321:5432"
-    networks:
-      - nplgretljobs
     volumes:
       - ${PWD}/development_dbs/override_setupsql.sh:/tmp/override_setupsql.sh
   pub-db:
     image: sogis/oereb-db
-    command: /tmp/override_setupsql.sh /opt/cpm/bin/start.sh
+    command: /tmp/override_setupsql_npl_pub.sh /opt/cpm/bin/start_pub.sh
     environment:
       PG_DATABASE: pub
       PG_LOCALE: de_CH.UTF-8
@@ -58,9 +54,5 @@ services:
       PG_READ_PASSWORD: ogc_server
     ports:
       - "54322:5432"
-    networks:
-      - nplgretljobs
     volumes:
-      - ${PWD}/development_dbs/override_setupsql.sh:/tmp/override_setupsql.sh
-networks:
-  nplgretljobs:
+      - ${PWD}/development_dbs/override_setupsql_npl_pub.sh:/tmp/override_setupsql_npl_pup.sh
